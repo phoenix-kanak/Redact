@@ -11,6 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.redact.screens.EnterDocumentPreview
+import com.example.redact.screens.FinalRedactionPreview
 import com.example.redact.ui.theme.RedactTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,9 +21,10 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             RedactTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+                Scaffold(
+                    modifier = Modifier.fillMaxSize()
+                ) { innerPadding ->
+                    FinalRedactionPreview(
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
