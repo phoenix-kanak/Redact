@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -59,6 +61,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.navigation.runtime.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -67,15 +70,43 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    implementation (libs.ui)
-    implementation (libs.androidx.material)
-    implementation (libs.ui.tooling.preview)
-    implementation (libs.androidx.foundation)
-    implementation (libs.ui.graphics)
+    implementation(libs.ui)
+    implementation(libs.androidx.material)
+    implementation(libs.ui.tooling.preview)
+    implementation(libs.androidx.foundation)
+    implementation(libs.ui.graphics)
 
     //glide
     implementation(libs.glide)
     annotationProcessor(libs.compiler)
     implementation(libs.androidx.ui.v140)
     implementation(libs.material3)
+
+    implementation("androidx.navigation:navigation-compose:2.8.0")
+
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    implementation("androidx.hilt:hilt-navigation-fragment:1.0.0")
+
+    implementation("com.google.dagger:hilt-android:2.48")
+    kapt("com.google.dagger:hilt-android-compiler:2.48")
+
+
+    // Jetpack Compose ViewModel
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+
+    // Optional: LiveData integration with Compose (if needed)
+    implementation ("androidx.lifecycle:lifecycle-livedata-compose:2.6.2")
+
+    // For Kotlin Coroutines support with ViewModel
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+
+    // For image picking and camera access
+    implementation ("androidx.activity:activity-ktx:1.8.0")
+    implementation ("androidx.camera:camera-core:1.2.0")
+    implementation ("androidx.camera:camera-camera2:1.2.0")
+    implementation ("androidx.camera:camera-lifecycle:1.2.0")
+    implementation ("androidx.camera:camera-view:1.2.0")
+
 }

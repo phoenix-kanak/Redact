@@ -39,12 +39,15 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.redact.R
 
 @Composable
-fun DocumentRedactionScreen() {
+fun DocumentRedactionScreen(
+    nextOnClick: () -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -68,7 +71,7 @@ fun DocumentRedactionScreen() {
             OrText()
             PhotoOptions()
             Spacer(modifier = Modifier.weight(1f))
-            NextButton(text = "NEXT")
+            NextButton(text = "NEXT", nextOnClick)
             Spacer(modifier = Modifier.height(24.dp))
         }
     }
@@ -317,9 +320,11 @@ fun TakePhotoOption(text: String) {
 }
 
 @Composable
-fun NextButton(text: String) {
+fun NextButton(text: String, nextOnClick: () -> Unit) {
     Button(
-        onClick = {},
+        onClick = {
+            nextOnClick()
+        },
         modifier = Modifier
             .fillMaxWidth()
             .height(49.dp)
@@ -350,7 +355,10 @@ fun NextButton(text: String) {
 }
 
 @Composable
-fun EnterDocumentPreview(modifier: Modifier) {
-    DocumentRedactionScreen()
+@Preview
+fun EnterDocumentPreview() {
+    DocumentRedactionScreen(){
+
+    }
 }
 

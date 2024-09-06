@@ -11,24 +11,29 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import com.example.redact.graphs.RedactNavigationGraph
 import com.example.redact.screens.EnterDocumentPreview
 import com.example.redact.screens.FinalRedactionPreview
 import com.example.redact.ui.theme.RedactTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            RedactTheme {
-                Scaffold(
-                    modifier = Modifier.fillMaxSize()
-                ) { innerPadding ->
-                    FinalRedactionPreview(
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
+            RedactNavigationGraph(navController = rememberNavController())
+//            RedactTheme {
+//                Scaffold(
+//                    modifier = Modifier.fillMaxSize()
+//                ) { innerPadding ->
+//                    FinalRedactionPreview(
+//                        modifier = Modifier.padding(innerPadding)
+//                    )
+//                }
+//            }
         }
     }
 }

@@ -48,7 +48,8 @@ import com.bumptech.glide.request.transition.Transition
 import com.example.redact.R
 
 @Composable
-fun FinalRedact() {
+fun FinalRedact(
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -91,7 +92,10 @@ fun FinalRedact() {
                     verticalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     BackButton()
-                    NextButton(text = "REDACT NOW")
+                    NextButton(text = "REDACT NOW"){
+
+                    }
+
                 }
             }
         }
@@ -237,7 +241,8 @@ fun DocumentPreviewPreview() {
 }
 
 @Composable
-fun FinalRedactionPreview(modifier: Modifier) {
+@Preview
+fun FinalRedactionPreview() {
     FinalRedact()
 }
 
